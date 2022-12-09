@@ -1,10 +1,7 @@
+#include <config.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
-
-const char* ssid = "your-wifi-ssid";  // replace with your WiFi SSID
-const char* password = "your-wifi-password";  // replace with your WiFi password
-const char* serverUrl = "http://your-web-server.com/battery-voltage";  // replace with the URL of your web server
 
 const int batteryVoltagePin = A0;  // analog pin for reading battery voltage
 const float referenceVoltage = 5.0;  // reference voltage for the Arduino
@@ -14,7 +11,7 @@ void setup() {
   delay(10);
 
   // connect to WiFi
-  WiFi.begin(ssid, password);
+  WiFi.begin(SSID, PASSWORD);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -33,7 +30,7 @@ void loop() {
 
   // send the JSON object to the web server
   HTTPClient http;
-  http.begin(serverUrl);
+  http.begin(SERVER_URL);
   http.addHeader("Content-Type", "application/json");
   String json;
   serializeJson(doc, json);
