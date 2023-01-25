@@ -1,3 +1,8 @@
+THIS IS ALL STILL A WORK IN PROGRESS, NOTHING GUARANTEED TO WORK
+
+For now, just `batswap.ino` is somewhat usable.
+
+
 To install and run the Express.js server with SQLite, you will need to have Node.js and npm (the Node.js package manager) installed on your system. Here are the general steps that you can follow:
 
 1. Create a new directory for your project, and navigate to it in a terminal.
